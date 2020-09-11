@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% load static  %}
+{% block content %}
+<div class="site-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 blog-content">
+                <h1>{{single_post.title}}</h1>
+                <h3>Author: <strong>{{single_post.author}}</strong></h3>
+                {% if single_post.photo %}
+                <img src="{{ single_post.photo.url }}" alt="Image" class="img-single-post">
+                {% else %}
+                <p></p>
+                {% endif %}
+                <p class="lead">{{single_post.preview_text}}</p>
+                <p>{{single_post.text_of_post}}</p>
+
+
+                <div class="pt-5">
+                    <p>Published: <a href="#">{{single_post.publish_date}}</a><br>Creation date: <a href="#">{{single_post.creation_date}}</a><br>Last modified: <a href="#">{{single_post.last_modified}}</a> </p>
+                </div>
+                
+            </div>
+
+        </div>
+    </div>
+</div>
+
+{% endblock %}
